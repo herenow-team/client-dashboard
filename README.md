@@ -1,5 +1,5 @@
-# react-boilerplate
-React boilerplate
+# client-dashboard
+Client Dashboard
 
 ```sh
 # Install the dependencies

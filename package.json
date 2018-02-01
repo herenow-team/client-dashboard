@@ -1,5 +1,5 @@
 {
-  "name": "react-boilerplate",
+  "name": "client-dashboard",
   "version": "1.0.0",
   "description": "React boilerplate",
   "main": "index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thiamsantos/react-boilerplate.git"
+    "url": "git+https://github.com/herenow-team/client-dashboard.git"
   },
   "keywords": [
     "react",
@@ -28,9 +28,9 @@
   "author": "Thiago Santos",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thiamsantos/react-boilerplate/issues"
+    "url": "https://github.com/herenow-team/client-dashboard/issues"
   },
-  "homepage": "https://github.com/thiamsantos/react-boilerplate#readme",
+  "homepage": "https://github.com/herenow-team/client-dashboard#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
