@@ -31,7 +31,7 @@ module.exports = () => {
           use: 'babel-loader'
         },
         {
-          test: /\.css$/,
+          test: /\.s?css$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
@@ -61,6 +61,9 @@ module.exports = () => {
                     ]
                   }
                 }
+              },
+              {
+                loader: 'sass-loader'
               }
             ]
           })
@@ -88,7 +91,10 @@ module.exports = () => {
         'public/static/*.css',
         'public/*.html'
       ]),
-      new ExtractTextPlugin('style.[contenthash].css'),
+      new ExtractTextPlugin({
+        filename: 'style.[contenthash].css',
+        disable: !isProd
+      }),
       new HtmlWebpackPlugin({
         template: 'src/index.html',
         filename: path.resolve(__dirname, 'public/index.html')

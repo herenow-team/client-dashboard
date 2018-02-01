@@ -4,9 +4,7 @@ import PropTypes from 'prop-types'
 
 const NavbarItem = ({href, text}) => (
   <li className="navbar-item">
-    <Link to={href}>
-      {text}
-    </Link>
+    <Link to={href}>{text}</Link>
   </li>
 )
 

@@ -2,6 +2,7 @@ import React from 'react'
 import Async from 'react-code-splitting'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import BaseScreen from './containers/base-screen'
+import './app.scss'
 
 const Home = props => (
   <Async load={import('./screens/home')} componentProps={props} />
@@ -23,11 +24,7 @@ const NoMatch = props => (
   <Async load={import('./screens/no-match')} componentProps={props} />
 )
 
-const Login = () => (
-  <div>
-    Login
-  </div>
-)
+const Login = () => <div>Login</div>
 
 const App = () => (
   <Router>
