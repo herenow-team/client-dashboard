@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackChunkHash = require('webpack-chunk-hash')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const cssnext = require('postcss-cssnext')
 const cssnano = require('cssnano')
 const easyImport = require('postcss-easy-import')
@@ -111,6 +112,7 @@ module.exports = () => {
     config.output.filename = '[name].[chunkhash].js'
     config.plugins = [
       ...config.plugins,
+      new LodashModuleReplacementPlugin(),
       new webpack.HashedModuleIdsPlugin(),
       new WebpackChunkHash()
     ]
