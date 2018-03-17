@@ -3,9 +3,7 @@ import Title from '../components/ui/title'
 
 const About = () => (
   <div>
-    <Title>
-      About
-    </Title>
+    <Title>About</Title>
   </div>
 )
 

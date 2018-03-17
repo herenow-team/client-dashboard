@@ -50,16 +50,16 @@ exports[`<BaseScreen /> component should render correctly 1`] = `
       </li>
     </ul>
   </nav>
-  <div
+  <section
     className="section"
   >
     <div
-      className="container"
+      className="container}"
     >
       <div>
         Some content
       </div>
     </div>
-  </div>
+  </section>
 </div>
 `;

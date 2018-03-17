@@ -4,9 +4,7 @@ import Title from './ui/title'
 
 const Timer = ({onResetClick, seconds}) => (
   <div>
-    <Title>
-      Timer
-    </Title>
+    <Title>Timer</Title>
     <p>
       Seconds:
       {seconds}

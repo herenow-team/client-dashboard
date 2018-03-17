@@ -24,7 +24,9 @@ const NoMatch = props => (
   <Async load={import('./screens/no-match')} componentProps={props} />
 )
 
-const Login = () => <div>Login</div>
+const Login = props => (
+  <Async load={import('./screens/login')} componentProps={props} />
+)
 
 const App = () => (
   <Router>

@@ -5,32 +5,20 @@ import Topic from '../components/topic'
 import Title from '../components/ui/title'
 import Subtitle from '../components/ui/subtitle'
 
-const DefaultTopic = () => (
-  <Subtitle>
-    Please select a topic.
-  </Subtitle>
-)
+const DefaultTopic = () => <Subtitle>Please select a topic.</Subtitle>
 
 const Topics = ({match}) => (
   <div>
-    <Title>
-      Topics
-    </Title>
+    <Title>Topics</Title>
     <ul>
       <li>
-        <Link to={`${match.url}/rendering`}>
-          Rendering with React
-        </Link>
+        <Link to={`${match.url}/rendering`}>Rendering with React</Link>
       </li>
       <li>
-        <Link to={`${match.url}/components`}>
-          Components
-        </Link>
+        <Link to={`${match.url}/components`}>Components</Link>
       </li>
       <li>
-        <Link to={`${match.url}/props-v-state`}>
-          Props v. State
-        </Link>
+        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
       </li>
     </ul>
 

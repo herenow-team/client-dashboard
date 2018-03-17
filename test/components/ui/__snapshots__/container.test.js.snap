@@ -2,7 +2,7 @@
 
 exports[`<Container /> component should render correctly 1`] = `
 <div
-  className="container"
+  className="container}"
 >
   <div>
     Some content

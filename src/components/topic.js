@@ -4,9 +4,7 @@ import Subtitle from './ui/subtitle'
 
 const Topic = ({match}) => (
   <div>
-    <Subtitle>
-      {match.params.topicId}
-    </Subtitle>
+    <Subtitle>{match.params.topicId}</Subtitle>
   </div>
 )
 
