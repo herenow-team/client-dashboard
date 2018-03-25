@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prelint": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"src/**/*.js\" --write webpack.config.js",
-    "lint": "xo --fix",
+    "lint": "xo --fix && stylelint src/**/*.css --fix",
     "pretest": "npm run lint",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -75,6 +75,9 @@
     "react-test-renderer": "^16.2.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
+    "stylelint": "^9.1.3",
+    "stylelint-order": "^0.8.1",
+    "stylelint-suitcss": "^3.0.0",
     "svg-url-loader": "^2.3.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
@@ -113,7 +116,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,css}": [
       "npm run lint",
       "git add"
     ]
