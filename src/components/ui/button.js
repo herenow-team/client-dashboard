@@ -1,13 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({name}) => (
-  <button type="submit" className="button is-success is-fullwidth is-medium">
+const Button = ({type, name}) => (
+  <button
+    type={type}
+    className="button is-success is-fullwidth is-outlined is-rounded"
+  >
     {name}
   </button>
 )
 
 Button.propTypes = {
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 }
 
