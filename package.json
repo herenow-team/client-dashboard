@@ -34,6 +34,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -59,6 +60,7 @@
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
     "jest": "^22.1.4",
+    "jest-css-modules": "^1.1.0",
     "lint-staged": "^6.0.1",
     "lodash-webpack-plugin": "^0.11.4",
     "node-notifier": "^5.2.1",
@@ -67,6 +69,7 @@
     "postcss-cssnext": "^3.1.0",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.0.10",
+    "prettier": "^1.11.1",
     "react-code-splitting": "^1.2.1",
     "react-router-dom": "^4.2.2",
     "react-test-renderer": "^16.2.0",
@@ -107,7 +110,9 @@
       "import/no-unassigned-import": 0,
       "react/jsx-tag-spacing": 0,
       "react/jsx-indent": 0,
-      "react/jsx-one-expression-per-line": 0
+      "react/jsx-one-expression-per-line": 0,
+      "react/button-has-type": 0,
+      "react/forbid-component-props": 0
     }
   },
   "lint-staged": {
@@ -120,6 +125,10 @@
     "setupTestFrameworkScriptFile": "./test/setup.js",
     "collectCoverageFrom": [
       "src/**/*.js"
-    ]
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "\\.(css|less)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   }
 }

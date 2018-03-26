@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseScreen /> component should render correctly 1`] = `
+<div>
+  <header
+    className={undefined}
+  >
+    <h1
+      className="has-text-success undefined"
+    >
+      LOGO GOES HERE
+    </h1>
+  </header>
+  <div
+    className="container"
+  >
+    <div>
+      Some content
+    </div>
+  </div>
+</div>
+`;

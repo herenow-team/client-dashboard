@@ -1,0 +1,16 @@
+:local .header {
+  border-bottom: 1px solid #eee;
+  min-height: 100px;
+  position: relative;
+  width: 100%;
+}
+
+:local .logo {
+  left: 50%;
+  margin-right: -50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+

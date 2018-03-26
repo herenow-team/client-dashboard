@@ -3,7 +3,7 @@ import Title from '../components/ui/title'
 
 const Home = () => (
   <div>
-    <Title>Home</Title>
+    <Title>Here Goes Forgot Password Page</Title>
   </div>
 )
 
