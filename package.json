@@ -15,7 +15,8 @@
     "build:prod": "cross-env NODE_ENV=production webpack -p",
     "serve": "node browsersync.js",
     "start": "run-p -r serve build:watch",
-    "precommit": "lint-staged && npm test && npm run build:prod"
+    "precommit": "lint-staged && npm test && npm run build:prod",
+    "cm": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -46,10 +47,12 @@
     "babel-preset-stage-0": "^6.24.1",
     "browser-sync": "^2.23.5",
     "clean-webpack-plugin": "^0.1.17",
+    "commitizen": "^2.9.6",
     "connect-history-api-fallback": "^1.5.0",
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.9",
     "cssnano": "^3.10.0",
+    "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.16.0",
@@ -129,6 +132,11 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest",
       "\\.(css|less)$": "<rootDir>/node_modules/jest-css-modules"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
