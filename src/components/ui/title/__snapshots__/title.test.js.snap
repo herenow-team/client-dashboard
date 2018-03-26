@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> component should render correctly 1`] = `
+<h1
+  className="title"
+>
+  Some cool title
+</h1>
+`;
+
+exports[`<Title /> component should support the isCentered prop 1`] = `
+<h1
+  className="title has-text-centered"
+>
+  Some cool title
+</h1>
+`;

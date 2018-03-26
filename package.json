@@ -89,6 +89,7 @@
   },
   "dependencies": {
     "bulma": "^0.6.2",
+    "classnames": "^2.2.5",
     "lodash": "^4.17.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",

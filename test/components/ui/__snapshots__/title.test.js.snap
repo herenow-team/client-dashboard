@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Title /> component should render correctly 1`] = `
-<h1
-  className="title"
->
-  Some cool title
-</h1>
-`;
