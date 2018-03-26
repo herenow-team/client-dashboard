@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Field /> component should render correctly 1`] = `
+<div
+  className="field"
+>
+  <label>
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <input
+      className="input is-medium"
+      placeholder="Some placeholder"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`<Field /> component should support label prop 1`] = `
+<div
+  className="field"
+>
+  <div
+    className="control"
+  >
+    <input
+      className="input is-medium"
+      placeholder="Some placeholder"
+      type="password"
+    />
+  </div>
+</div>
+`;
+
+exports[`<Field /> component should support type prop 1`] = `
+<div
+  className="field"
+>
+  <label>
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <input
+      className="input is-medium"
+      placeholder="Some placeholder"
+      type="password"
+    />
+  </div>
+</div>
+`;
