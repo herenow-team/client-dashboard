@@ -11,9 +11,28 @@ const Login = () => (
   <Section>
     <Columns isCentered>
       <Column isOneThird>
-        <Field type="email" label={false} placeholder="Digite seu e-mail" />
-        <Field type="password" label={false} placeholder="Digite o Senha" />
-        <Button type="submit">Entrar</Button>
+        <Field
+          type="email"
+          name="email"
+          label={false}
+          placeholder="Digite seu e-mail"
+        />
+        <Field
+          type="password"
+          name="password"
+          label={false}
+          placeholder="Digite a Senha"
+        />
+        <Button
+          type="submit"
+          isSuccess
+          isFullWidth
+          isOutlined
+          isRounded
+          isMedium
+        >
+          Entrar
+        </Button>
       </Column>
     </Columns>
     <Columns isCentered>

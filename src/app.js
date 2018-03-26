@@ -1,6 +1,7 @@
 import React from 'react'
 import Async from 'react-code-splitting'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {Helmet} from 'react-helmet'
 import BaseScreen from './containers/base-screen'
 import UserBaseScreen from './containers/user-base-screen'
 import './app.scss'
@@ -30,16 +31,25 @@ const App = () => (
     <Switch>
       <Route exact path="/login">
         <UserBaseScreen>
+          <Helmet>
+            <title>Login - HereNow</title>
+          </Helmet>
           <Login />
         </UserBaseScreen>
       </Route>
       <Route exact path="/subscribe">
         <UserBaseScreen>
+          <Helmet>
+            <title>Increver-se - HereNow</title>
+          </Helmet>
           <Subscribe />
         </UserBaseScreen>
       </Route>
       <Route exact path="/forgot-password">
         <UserBaseScreen>
+          <Helmet>
+            <title>Redefinir sua senha - HereNow</title>
+          </Helmet>
           <ForgotPassword />
         </UserBaseScreen>
       </Route>

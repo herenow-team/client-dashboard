@@ -24,4 +24,15 @@ describe('<Column /> component', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
+
+  it('should support isHalf prop', () => {
+    const tree = renderer
+      .create(
+        <Column isHalf>
+          <div>Some content</div>
+        </Column>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })
