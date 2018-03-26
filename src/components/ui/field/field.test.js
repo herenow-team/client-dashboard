@@ -5,7 +5,13 @@ import Field from './index'
 describe('<Field /> component', () => {
   it('should render correctly', () => {
     const tree = renderer
-      .create(<Field label="Some label" placeholder="Some placeholder" />)
+      .create(
+        <Field
+          name="something"
+          label="Some label"
+          placeholder="Some placeholder"
+        />
+      )
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -13,7 +19,12 @@ describe('<Field /> component', () => {
   it('should support label prop', () => {
     const tree = renderer
       .create(
-        <Field type="password" label={false} placeholder="Some placeholder" />
+        <Field
+          name="password"
+          type="password"
+          label={false}
+          placeholder="Some placeholder"
+        />
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
@@ -23,6 +34,7 @@ describe('<Field /> component', () => {
     const tree = renderer
       .create(
         <Field
+          name="password"
           type="password"
           label="Some label"
           placeholder="Some placeholder"

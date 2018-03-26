@@ -24,6 +24,9 @@ module.exports = () => {
       path: path.resolve(__dirname, 'public/static'),
       publicPath: '/static/'
     },
+    resolve: {
+      aliasFields: ['browser']
+    },
     module: {
       rules: [
         {

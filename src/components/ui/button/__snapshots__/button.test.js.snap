@@ -2,7 +2,52 @@
 
 exports[`<Button /> component should render correctly 1`] = `
 <button
-  className="button is-success is-fullwidth is-outlined is-rounded"
+  className="button"
+  type="submit"
+>
+  Name
+</button>
+`;
+
+exports[`<Button /> component should support the isFullWidth prop 1`] = `
+<button
+  className="button is-fullwidth"
+  type="submit"
+>
+  Name
+</button>
+`;
+
+exports[`<Button /> component should support the isMedium prop 1`] = `
+<button
+  className="button is-medium"
+  type="submit"
+>
+  Name
+</button>
+`;
+
+exports[`<Button /> component should support the isOutlined prop 1`] = `
+<button
+  className="button is-outlined"
+  type="submit"
+>
+  Name
+</button>
+`;
+
+exports[`<Button /> component should support the isRounded prop 1`] = `
+<button
+  className="button is-rounded"
+  type="submit"
+>
+  Name
+</button>
+`;
+
+exports[`<Button /> component should support the isSuccess prop 1`] = `
+<button
+  className="button is-success"
   type="submit"
 >
   Name

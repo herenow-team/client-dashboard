@@ -20,8 +20,22 @@ const ForgotPassword = () => (
     </Columns>
     <Columns isCentered>
       <Column isOneThird>
-        <Field type="email" label="Email" placeholder="Digite seu e-mail" />
-        <Button type="submit">Enviar</Button>
+        <Field
+          type="email"
+          name="email"
+          label="Email"
+          placeholder="Digite seu e-mail"
+        />
+        <Button
+          type="submit"
+          isSuccess
+          isFullWidth
+          isOutlined
+          isRounded
+          isMedium
+        >
+          Enviar
+        </Button>
       </Column>
     </Columns>
   </Section>

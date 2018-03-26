@@ -4,7 +4,9 @@ exports[`<Field /> component should render correctly 1`] = `
 <div
   className="field"
 >
-  <label>
+  <label
+    htmlFor="input-something"
+  >
     Some label
   </label>
   <div
@@ -12,6 +14,8 @@ exports[`<Field /> component should render correctly 1`] = `
   >
     <input
       className="input is-medium"
+      id="input-something"
+      name="something"
       placeholder="Some placeholder"
       type="text"
     />
@@ -28,6 +32,8 @@ exports[`<Field /> component should support label prop 1`] = `
   >
     <input
       className="input is-medium"
+      id="input-password"
+      name="password"
       placeholder="Some placeholder"
       type="password"
     />
@@ -39,7 +45,9 @@ exports[`<Field /> component should support type prop 1`] = `
 <div
   className="field"
 >
-  <label>
+  <label
+    htmlFor="input-password"
+  >
     Some label
   </label>
   <div
@@ -47,6 +55,8 @@ exports[`<Field /> component should support type prop 1`] = `
   >
     <input
       className="input is-medium"
+      id="input-password"
+      name="password"
       placeholder="Some placeholder"
       type="password"
     />
