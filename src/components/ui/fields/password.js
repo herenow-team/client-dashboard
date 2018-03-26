@@ -15,13 +15,8 @@ const Password = ({label, placeholder}) => (
 )
 
 Password.propTypes = {
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  placeholder: PropTypes.string
-}
-
-Password.defaultProps = {
-  label: false,
-  placeholder: ''
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+  placeholder: PropTypes.string.isRequired
 }
 
 export default Password

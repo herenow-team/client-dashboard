@@ -15,13 +15,8 @@ const Text = ({label, placeholder}) => (
 )
 
 Text.propTypes = {
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  placeholder: PropTypes.string
-}
-
-Text.defaultProps = {
-  label: false,
-  placeholder: ''
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+  placeholder: PropTypes.string.isRequired
 }
 
 export default Text

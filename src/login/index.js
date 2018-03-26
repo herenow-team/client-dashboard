@@ -10,8 +10,8 @@ const Login = () => (
   <Section>
     <div className="columns is-centered">
       <div className="column is-one-third is-narrow">
-        <Text placeholder="Digite seu e-mail" />
-        <Password placeholder="Digite o Senha" />
+        <Text label={false} placeholder="Digite seu e-mail" />
+        <Password label={false} placeholder="Digite o Senha" />
         <Button type="submit" name="Entrar" />
       </div>
     </div>
