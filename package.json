@@ -4,8 +4,10 @@
   "description": "React boilerplate",
   "main": "index.js",
   "scripts": {
-    "prelint": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"src/**/*.js\" --write webpack.config.js",
-    "lint": "xo --fix && stylelint src/**/*.css --fix",
+    "prettier": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"src/**/*.js\" --write webpack.config.js",
+    "lint:js": "npm run prettier && xo --fix",
+    "lint:css": "stylelint src/**/*.css --fix",
+    "lint": "npm run lint:js && npm run lint:css",
     "pretest": "npm run lint",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -127,8 +129,12 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,css}": [
-      "npm run lint",
+    "*.js": [
+      "npm run lint:js",
+      "git add"
+    ],
+    "*.css": [
+      "npm run lint:css",
       "git add"
     ]
   },
