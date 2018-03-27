@@ -1,3 +1,4 @@
+require('dotenv').config()
 const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -17,16 +18,14 @@ module.exports = () => {
   const config = {
     entry: {
       app: path.resolve(__dirname, 'src/index.js'),
-      vendor: ['react', 'react-dom']
+      vendor: ['whatwg-fetch', 'babel-polyfill', 'react', 'react-dom']
     },
     output: {
       filename: '[name].[hash].js',
       path: path.resolve(__dirname, 'public/static'),
       publicPath: '/static/'
     },
-    resolve: {
-      aliasFields: ['browser']
-    },
+    resolve: {aliasFields: ['browser']},
     module: {
       rules: [
         {
@@ -106,7 +105,9 @@ module.exports = () => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': isProd ?
           JSON.stringify('production') :
-          JSON.stringify('development')
+          JSON.stringify('development'),
+        'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL),
+        'process.env.RECAPTCHA_KEY': JSON.stringify(process.env.RECAPTCHA_KEY)
       })
     ]
   }
