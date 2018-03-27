@@ -1,26 +1,27 @@
 import {createInvisibleGrecaptcha, execute} from 'invisible-grecaptcha'
+import wretch from 'wretch'
+import history from '../../../../core/history'
 
-const verifyCallback = (values, actions) => token => {
-  console.log(token)
-  console.log(values)
-  console.log(actions)
-  // LoginToMyApp(values).then(
-  //   user => {
-  //     setSubmitting(false);
-  //     // do whatevs...
-  //     // props.updateUser(user)
-  //   },
-  //   errors => {
-  //     setSubmitting(false);
-  //     // Maybe even transform your API's errors into the same shape as Formik's!
-  //     setErrors(transformMyApiErrors(errors));
-  //   }
-  // );
+const verifyCallback = (values, {setSubmitting}) => captcha => {
+  wretch(process.env.BASE_URL + '/v1/auth/identity')
+    .options({mode: 'cors'})
+    .json({...values, captcha})
+    .post()
+    .json(({token}) => {
+      window.sessionStorage.setItem('token', token)
+      setSubmitting(false)
+      history.push('/')
+    })
+    .catch(err => {
+      setSubmitting(false)
+
+      console.error(err)
+    })
 }
 
 export default async function handleSubmit(values, actions) {
   const grecaptchaId = await createInvisibleGrecaptcha({
-    sitekey: '6LdLnkMUAAAAAA0e7x8KEw9n7W8MMGpwCMszFBwm',
+    sitekey: process.env.RECAPTCHA_KEY,
     locale: 'pt',
     callback: verifyCallback(values, actions)
   })
