@@ -1,52 +1,79 @@
-import axios from 'axios'
 import {createInvisibleGrecaptcha, execute} from 'invisible-grecaptcha'
 import history from '../../../../core/history'
+import {setToken} from '../../../../core/token'
+import requestToken from '../../services/request-token'
+import InvalidCaptcha from '../../errors/invalid-captcha'
+import RequiredFieldError from '../../errors/required-field'
+import InvalidFieldError from '../../errors/invalid-field'
+import TooLongFieldError from '../../errors/too-long-field'
+import InvalidFieldFormatError from '../../errors/invalid-field-format'
+import InvalidCredentialsError from '../../errors/invalid-credentials'
+import UnverifiedAccountError from '../../errors/unverified-account'
 
-const verifyCallback = (values, {setSubmitting, setFieldError}) => captcha => {
-  axios
-    .post(process.env.BASE_URL + '/v1/auth/identity', {...values, captcha})
-    .then(response => {
-      const token = response.data.token
-      window.sessionStorage.setItem('token', token)
-      setSubmitting(false)
-      history.push('/')
-    })
-    .catch(err => {
-      setSubmitting(false)
-      if (err.response.status === 422) {
-        if (err.response.data.code === 100) {
-          const error = err.response.data.errors[0]
-          if (error.code === 101) {
-            console.log('Captcha inválido')
-          } else if (error.code === 104) {
-            setFieldError(error.field, 'Campo obrigatório')
-          } else if (error.code === 102) {
-            setFieldError(error.field, 'Campo inválido')
-          } else if (error.code === 103) {
-            setFieldError(error.field, 'Campo é muito longo.')
-          } else if (error.code === 106) {
-            setFieldError(error.field, 'Campo está em um formato inválido.')
-          }
+const verifyCallback = (
+  values,
+  {setSubmitting, setFieldError, setFieldValue, setFieldTouched, setStatus}
+) => async captcha => {
+  setSubmitting(false)
+  setStatus(undefined)
+
+  try {
+    const {token} = await requestToken({...values, captcha})
+    setToken(token)
+    history.push('/')
+  } catch (err) {
+    if (err instanceof InvalidCaptcha) {
+      setStatus({message: 'Captcha inválido'})
+      return
+    }
+
+    if (err instanceof RequiredFieldError) {
+      setFieldError(err.field, 'Campo obrigatório')
+      return
+    }
+
+    if (err instanceof InvalidFieldError) {
+      setFieldError(err.field, 'Campo inválido')
+      return
+    }
+
+    if (err instanceof TooLongFieldError) {
+      setFieldError(err.field, 'Campo é muito longo.')
+      return
+    }
+
+    if (err instanceof InvalidFieldFormatError) {
+      setFieldError(err.field, 'Campo está em um formato inválido.')
+      return
+    }
+
+    if (err instanceof InvalidCredentialsError) {
+      setFieldValue('password', '')
+      setFieldTouched('password', false, false)
+      setFieldError('email', 'Login ou senha inválidos.')
+      return
+    }
+
+    if (err instanceof UnverifiedAccountError) {
+      setStatus({
+        message: {
+          text:
+            'Conta não foi verificada. Tenha certeza de verificar a sua conta antes de continuar.',
+          isDanger: false,
+          isInfo: true
         }
-      } else if (err.response.status === 401) {
-        if (err.response.data.code === 300) {
-          const error = err.response.data.errors[0]
+      })
+      return
+    }
 
-          if (error.code === 301) {
-            setFieldError('email', 'Login ou senha inválidos.')
-          } else if (error.code === 302) {
-            setFieldError(
-              'email',
-              'Conta não foi verificada. Tenha certeza de verificar a sua conta antes de continuar.'
-            )
-          }
-        }
-      } else {
-        console.error(err)
-
-        console.log('Algo deu errado. Tente novamente mais tarde.')
+    setStatus({
+      message: {
+        text: 'Algo deu errado. Tente novamente mais tarde.',
+        isDanger: true,
+        isInfo: false
       }
     })
+  }
 }
 
 export default async function handleSubmit(values, actions) {

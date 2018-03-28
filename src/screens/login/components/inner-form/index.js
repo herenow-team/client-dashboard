@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '../../../../components/ui/button'
 import Field from '../../../../components/ui/field'
+import Message from '../../../../components/ui/message'
 
 const InnerForm = ({
   values,
@@ -10,9 +11,11 @@ const InnerForm = ({
   handleChange,
   handleBlur,
   handleSubmit,
-  isSubmitting
+  isSubmitting,
+  status
 }) => (
   <form onSubmit={handleSubmit}>
+    {status.message && <Message {...status.message} />}
     <Field
       type="email"
       name="email"
@@ -61,6 +64,13 @@ InnerForm.propTypes = {
     email: PropTypes.string,
     password: PropTypes.string
   }),
+  status: PropTypes.shape({
+    message: PropTypes.shape({
+      text: PropTypes.string,
+      isDanger: PropTypes.bool,
+      isInfo: PropTypes.bool
+    })
+  }),
   touched: PropTypes.shape({
     email: PropTypes.bool,
     password: PropTypes.bool
@@ -78,6 +88,9 @@ InnerForm.defaultProps = {
   errors: {
     email: null,
     password: null
+  },
+  status: {
+    message: null
   }
 }
 
