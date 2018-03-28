@@ -91,6 +91,7 @@
     "xo": "^0.18.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bulma": "^0.6.2",
     "classnames": "^2.2.5",
@@ -102,9 +103,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
-    "react-recaptcha": "^2.3.7",
-    "whatwg-fetch": "^2.0.3",
-    "wretch": "^1.1.2"
+    "react-recaptcha": "^2.3.7"
   },
   "prettier": {
     "singleQuote": true,

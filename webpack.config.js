@@ -18,7 +18,7 @@ module.exports = () => {
   const config = {
     entry: {
       app: path.resolve(__dirname, 'src/index.js'),
-      vendor: ['whatwg-fetch', 'babel-polyfill', 'react', 'react-dom']
+      vendor: ['babel-polyfill', 'react', 'react-dom']
     },
     output: {
       filename: '[name].[hash].js',
