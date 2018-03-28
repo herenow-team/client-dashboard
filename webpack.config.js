@@ -1,4 +1,3 @@
-require('dotenv').config()
 const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -7,6 +6,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackChunkHash = require('webpack-chunk-hash')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const DotenvPlugin = require('dotenv-webpack')
 const cssnext = require('postcss-cssnext')
 const cssnano = require('cssnano')
 const easyImport = require('postcss-easy-import')
@@ -15,13 +15,62 @@ const notifier = require('node-notifier')
 module.exports = () => {
   const isProd = process.env.NODE_ENV === 'production'
 
+  const defaultPlugins = [
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+    new CleanWebpackPlugin([
+      'public/static/*.js',
+      'public/static/*.css',
+      'public/*.html'
+    ]),
+    new ExtractTextPlugin({
+      filename: 'style.[contenthash].css',
+      disable: !isProd
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      filename: path.resolve(__dirname, 'public/index.html')
+    }),
+    new DotenvPlugin({
+      safe: true,
+      systemvars: true
+    })
+  ]
+
+  const productionPlugins = [
+    ...defaultPlugins,
+    new LodashModuleReplacementPlugin(),
+    new webpack.HashedModuleIdsPlugin(),
+    new WebpackChunkHash()
+  ]
+
+  const developmentPlugins = [
+    ...defaultPlugins,
+    new FriendlyErrorsWebpackPlugin({
+      onErrors(severity, errors) {
+        if (severity !== 'error') {
+          return
+        }
+        const error = errors[0]
+
+        notifier.notify({
+          title: 'Webpack error',
+          message: severity + ': ' + error.name,
+          subtitle: error.file || ''
+        })
+      }
+    })
+  ]
+
   const config = {
     entry: {
       app: path.resolve(__dirname, 'src/index.js'),
       vendor: ['babel-polyfill', 'react', 'react-dom']
     },
     output: {
-      filename: '[name].[hash].js',
+      filename: isProd ? '[name].[chunkhash].js' : '[name].[hash].js',
       path: path.resolve(__dirname, 'public/static'),
       publicPath: '/static/'
     },
@@ -84,60 +133,7 @@ module.exports = () => {
         }
       ]
     },
-    plugins: [
-      new webpack.optimize.ModuleConcatenationPlugin(),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor'
-      }),
-      new CleanWebpackPlugin([
-        'public/static/*.js',
-        'public/static/*.css',
-        'public/*.html'
-      ]),
-      new ExtractTextPlugin({
-        filename: 'style.[contenthash].css',
-        disable: !isProd
-      }),
-      new HtmlWebpackPlugin({
-        template: 'src/index.html',
-        filename: path.resolve(__dirname, 'public/index.html')
-      }),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': isProd ?
-          JSON.stringify('production') :
-          JSON.stringify('development'),
-        'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL),
-        'process.env.RECAPTCHA_KEY': JSON.stringify(process.env.RECAPTCHA_KEY)
-      })
-    ]
-  }
-
-  if (isProd) {
-    config.output.filename = '[name].[chunkhash].js'
-    config.plugins = [
-      ...config.plugins,
-      new LodashModuleReplacementPlugin(),
-      new webpack.HashedModuleIdsPlugin(),
-      new WebpackChunkHash()
-    ]
-  } else {
-    config.plugins = [
-      ...config.plugins,
-      new FriendlyErrorsWebpackPlugin({
-        onErrors(severity, errors) {
-          if (severity !== 'error') {
-            return
-          }
-          const error = errors[0]
-
-          notifier.notify({
-            title: 'Webpack error',
-            message: severity + ': ' + error.name,
-            subtitle: error.file || ''
-          })
-        }
-      })
-    ]
+    plugins: isProd ? productionPlugins : developmentPlugins
   }
 
   return config
