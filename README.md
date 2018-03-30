@@ -5,6 +5,9 @@ This project uses [node](http://nodejs.org) and [npm](https://npmjs.com).
 Go check them out if you don't have them locally installed.
 
 ```sh
+# Create yout .env file, make sure to include the correct credentials
+$ cp .env.example .env
+
 # Install the dependencies
 $ npm i
 
