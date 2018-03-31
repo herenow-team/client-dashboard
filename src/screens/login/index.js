@@ -16,12 +16,14 @@ const Login = () => (
           name="email"
           label={false}
           placeholder="Digite seu e-mail"
+          isMedium
         />
         <Field
           type="password"
           name="password"
           label={false}
           placeholder="Digite a Senha"
+          isMedium
         />
         <Button
           type="submit"

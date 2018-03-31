@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Field /> component should render correctly 1`] = `
+<div
+  className="field"
+>
+  <label
+    htmlFor="input-something"
+  >
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <div
+      className="select"
+    >
+      <select
+        id="input-something"
+        name="something"
+      >
+        <option
+          value={0}
+        >
+          Pessoa Jurídica
+        </option>
+        <option
+          value={1}
+        >
+          Pessoa Física
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Field /> component should support a ErroMessage prop 1`] = `
+<div
+  className="field"
+>
+  <label
+    htmlFor="input-something"
+  >
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <div
+      className="select is-danger"
+    >
+      <select
+        id="input-something"
+        name="something"
+      >
+        <option
+          value={0}
+        >
+          Pessoa Jurídica
+        </option>
+        <option
+          value={1}
+        >
+          Pessoa Física
+        </option>
+      </select>
+    </div>
+  </div>
+  <p
+    className="help is-danger"
+  >
+    Error
+  </p>
+</div>
+`;
+
+exports[`<Field /> component should support isDanger prop 1`] = `
+<div
+  className="field"
+>
+  <label
+    htmlFor="input-something"
+  >
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <div
+      className="select is-danger"
+    >
+      <select
+        id="input-something"
+        name="something"
+      >
+        <option
+          value={0}
+        >
+          Pessoa Jurídica
+        </option>
+        <option
+          value={1}
+        >
+          Pessoa Física
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Field /> component should support isLarge prop 1`] = `
+<div
+  className="field"
+>
+  <label
+    htmlFor="input-something"
+  >
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <div
+      className="select is-large"
+    >
+      <select
+        id="input-something"
+        name="something"
+      >
+        <option
+          value={0}
+        >
+          Pessoa Jurídica
+        </option>
+        <option
+          value={1}
+        >
+          Pessoa Física
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Field /> component should support isMedium prop 1`] = `
+<div
+  className="field"
+>
+  <label
+    htmlFor="input-something"
+  >
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <div
+      className="select is-medium"
+    >
+      <select
+        id="input-something"
+        name="something"
+      >
+        <option
+          value={0}
+        >
+          Pessoa Jurídica
+        </option>
+        <option
+          value={1}
+        >
+          Pessoa Física
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Field /> component should support isSmall prop 1`] = `
+<div
+  className="field"
+>
+  <label
+    htmlFor="input-something"
+  >
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <div
+      className="select is-small"
+    >
+      <select
+        id="input-something"
+        name="something"
+      >
+        <option
+          value={0}
+        >
+          Pessoa Jurídica
+        </option>
+        <option
+          value={1}
+        >
+          Pessoa Física
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Field /> component should support isSuccess prop 1`] = `
+<div
+  className="field"
+>
+  <label
+    htmlFor="input-something"
+  >
+    Some label
+  </label>
+  <div
+    className="control"
+  >
+    <div
+      className="select is-success"
+    >
+      <select
+        id="input-something"
+        name="something"
+      >
+        <option
+          value={0}
+        >
+          Pessoa Jurídica
+        </option>
+        <option
+          value={1}
+        >
+          Pessoa Física
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Field /> component should support label prop 1`] = `
+<div
+  className="field"
+>
+  <div
+    className="control"
+  >
+    <div
+      className="select"
+    >
+      <select
+        id="input-something"
+        name="something"
+      >
+        <option
+          value={0}
+        >
+          Pessoa Jurídica
+        </option>
+        <option
+          value={1}
+        >
+          Pessoa Física
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
