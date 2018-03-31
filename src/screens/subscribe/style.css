@@ -11,8 +11,13 @@
 
 :local .bottom {
   display: flex;
+  margin-top: 15px;
 }
 
 :local .separator {
   flex: 1;
+}
+
+:local .title {
+  display: flex;
 }

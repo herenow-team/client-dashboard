@@ -8,6 +8,8 @@ import {
 } from 'react-step'
 import StepOne from './step-one'
 import StepTwo from './step-two'
+import StepThree from './step-three'
+import StepTitle from './components/title'
 import style from './style.css'
 
 const pages = [
@@ -18,11 +20,18 @@ const pages = [
   {
     title: 'Onde te encontrar?',
     component: StepTwo
+  },
+  {
+    title: 'Confirme a localização',
+    component: StepThree
   }
 ]
 
 const Subscribe = () => (
   <Stepper pages={pages}>
+    <div className={style.title}>
+      <StepTitle />
+    </div>
     <div className={style.tracker}>
       <span className={style.separator}>
         <DotTracker />
