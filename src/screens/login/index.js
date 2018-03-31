@@ -1,49 +1,11 @@
 import React from 'react'
-import Section from '../../components/ui/section'
-import Button from '../../components/ui/button'
-import Field from '../../components/ui/field'
-import Columns from '../../components/ui/columns'
-import Column from '../../components/ui/column'
-import Subscribe from './components/subscribe'
-import ForgotPassword from './components/forgot-password'
+import Screen from './components/screen'
+import Form from './containers/form'
 
 const Login = () => (
-  <Section>
-    <Columns isCentered>
-      <Column isOneThird>
-        <Field
-          type="email"
-          name="email"
-          label={false}
-          placeholder="Digite seu e-mail"
-          isMedium
-        />
-        <Field
-          type="password"
-          name="password"
-          label={false}
-          placeholder="Digite a Senha"
-          isMedium
-        />
-        <Button
-          type="submit"
-          isSuccess
-          isFullWidth
-          isOutlined
-          isRounded
-          isMedium
-        >
-          Entrar
-        </Button>
-      </Column>
-    </Columns>
-    <Columns isCentered>
-      <Column isOneThird>
-        <ForgotPassword />
-        <Subscribe />
-      </Column>
-    </Columns>
-  </Section>
+  <Screen>
+    <Form />
+  </Screen>
 )
 
 export default Login

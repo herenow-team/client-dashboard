@@ -1,7 +1,8 @@
 import React from 'react'
 import Async from 'react-code-splitting'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {Router, Switch, Route} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
+import history from './core/history'
 import BaseScreen from './containers/base-screen'
 import UserBaseScreen from './containers/user-base-screen'
 import './app.scss'
@@ -27,7 +28,7 @@ const Subscribe = props => (
 )
 
 const App = () => (
-  <Router>
+  <Router history={history}>
     <Switch>
       <Route exact path="/login">
         <UserBaseScreen>

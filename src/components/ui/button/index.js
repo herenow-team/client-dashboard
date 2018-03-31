@@ -9,7 +9,8 @@ const Button = ({
   isFullWidth,
   isOutlined,
   isRounded,
-  isMedium
+  isMedium,
+  isLoading
 }) => (
   <button
     type={type}
@@ -18,7 +19,8 @@ const Button = ({
       'is-fullwidth': isFullWidth,
       'is-outlined': isOutlined,
       'is-rounded': isRounded,
-      'is-medium': isMedium
+      'is-medium': isMedium,
+      'is-loading': isLoading
     })}
   >
     {children}
@@ -32,7 +34,8 @@ Button.propTypes = {
   isFullWidth: PropTypes.bool,
   isOutlined: PropTypes.bool,
   isRounded: PropTypes.bool,
-  isMedium: PropTypes.bool
+  isMedium: PropTypes.bool,
+  isLoading: PropTypes.bool
 }
 
 Button.defaultProps = {
@@ -40,7 +43,8 @@ Button.defaultProps = {
   isFullWidth: false,
   isOutlined: false,
   isRounded: false,
-  isMedium: false
+  isMedium: false,
+  isLoading: false
 }
 
 export default Button
