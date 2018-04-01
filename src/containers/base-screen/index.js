@@ -4,7 +4,12 @@ import Navbar from '../../components/ui/navbar'
 import Section from '../../components/ui/section'
 import Container from '../../components/ui/container'
 
-const links = [{href: '/', text: 'Home'}]
+const links = [
+  {href: '/', text: 'Home'},
+  {href: '/subscribe', text: 'Subscribe'},
+  {href: '/login', text: 'Login'},
+  {href: '/forgot-password', text: 'Forgot Password'}
+]
 
 const BaseScreen = ({children}) => (
   <div>
