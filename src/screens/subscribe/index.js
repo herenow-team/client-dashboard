@@ -18,7 +18,12 @@ const fields = [
     placeholder: 'Digite sua senha',
     label: 'Senha'
   },
-  {type: 'text', name: 'name', placeholder: 'Digite seu nome', label: 'Senha'},
+  {
+    type: 'text',
+    name: 'name',
+    placeholder: 'Digite seu nome',
+    label: 'Nome'
+  },
   {
     type: 'text',
     name: 'legal_name',
@@ -55,7 +60,12 @@ const fields = [
     placeholder: 'Digite o número da residência',
     label: 'Número'
   },
-  {type: 'text', name: 'city', placeholder: 'Digite a cidae', label: 'Cidade'},
+  {
+    type: 'text',
+    name: 'city',
+    placeholder: 'Digite a cidade',
+    label: 'Cidade'
+  },
   {
     type: 'text',
     name: 'lat',
@@ -68,7 +78,12 @@ const fields = [
     placeholder: 'Digite a longitude',
     label: 'Longitude'
   },
-  {type: 'text', name: 'state', placeholder: 'Digite o estado', label: 'Estado'}
+  {
+    type: 'text',
+    name: 'state',
+    placeholder: 'Digite o estado',
+    label: 'Estado'
+  }
 ]
 
 const Subscribe = () => (

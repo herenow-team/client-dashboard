@@ -18,6 +18,36 @@ exports[`<BaseScreen /> component should render correctly 1`] = `
           Home
         </a>
       </li>
+      <li
+        className="navbar-item"
+      >
+        <a
+          href="/subscribe"
+          onClick={[Function]}
+        >
+          Subscribe
+        </a>
+      </li>
+      <li
+        className="navbar-item"
+      >
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Login
+        </a>
+      </li>
+      <li
+        className="navbar-item"
+      >
+        <a
+          href="/forgot-password"
+          onClick={[Function]}
+        >
+          Forgot Password
+        </a>
+      </li>
     </ul>
   </nav>
   <section
