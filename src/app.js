@@ -11,10 +11,6 @@ const Home = props => (
   <Async load={import('./screens/home')} componentProps={props} />
 )
 
-const NoMatch = props => (
-  <Async load={import('./screens/no-match')} componentProps={props} />
-)
-
 const Login = props => (
   <Async load={import('./screens/login')} componentProps={props} />
 )
@@ -25,6 +21,10 @@ const ForgotPassword = props => (
 
 const Subscribe = props => (
   <Async load={import('./screens/subscribe')} componentProps={props} />
+)
+
+const NoMatch = props => (
+  <Async load={import('./screens/no-match')} componentProps={props} />
 )
 
 const App = () => (
