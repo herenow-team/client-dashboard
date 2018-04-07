@@ -5,11 +5,13 @@ exports[`<BaseScreen /> component should render correctly 1`] = `
   <header
     className={undefined}
   >
-    <h1
+    <a
       className="has-text-success undefined"
+      href="/"
+      onClick={[Function]}
     >
       LOGO GOES HERE
-    </h1>
+    </a>
   </header>
   <div
     className="container"

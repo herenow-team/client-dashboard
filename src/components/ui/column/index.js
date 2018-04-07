@@ -13,7 +13,7 @@ const Column = ({
   isTwoFifths,
   isOneFifth,
   isHalf,
-  is,
+  size,
   offset
 }) => (
   <div
@@ -27,7 +27,7 @@ const Column = ({
       'is-two-fifths': isTwoFifths,
       'is-one-fifth': isOneFifth,
       'is-half': isHalf,
-      [`is-${is}`]: Boolean(is >= 1 && is <= 12),
+      [`is-${size}`]: Boolean(size >= 1 && size <= 12),
       [`is-offset-${offset}`]: Boolean(offset >= 1 && offset <= 12)
     })}
   >
@@ -46,7 +46,7 @@ Column.propTypes = {
   isThreeFifths: PropTypes.bool,
   isTwoFifths: PropTypes.bool,
   isOneFifth: PropTypes.bool,
-  is: PropTypes.number,
+  size: PropTypes.number,
   offset: PropTypes.number
 }
 
@@ -60,8 +60,8 @@ Column.defaultProps = {
   isThreeFifths: false,
   isTwoFifths: false,
   isOneFifth: false,
-  is: 0,
-  offset: 0
+  size: null,
+  offset: null
 }
 
 export default Column

@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 import Container from '../../components/ui/container'
 import style from './style.css'
 
 const Header = () => (
   <header className={style.header}>
-    <h1 className={`has-text-success ${style.logo}`}>LOGO GOES HERE</h1>
+    <Link to="/" className={`has-text-success ${style.logo}`}>
+      LOGO GOES HERE
+    </Link>
   </header>
 )
 

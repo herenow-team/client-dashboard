@@ -5,9 +5,9 @@ import Column from '../../components/ui/column'
 
 const StepTwo = () => (
   <Columns isCentered>
-    <Column is={8}>
+    <Column size={8}>
       <Columns>
-        <Column is={4}>
+        <Column size={4}>
           <Field
             type="text"
             name="postal_code"
@@ -17,7 +17,7 @@ const StepTwo = () => (
         </Column>
       </Columns>
       <Columns>
-        <Column is={9}>
+        <Column size={9}>
           <Field
             type="text"
             name="street_name"
@@ -25,7 +25,7 @@ const StepTwo = () => (
             placeholder="Digite o Endereço"
           />
         </Column>
-        <Column is={3}>
+        <Column size={3}>
           <Field
             type="text"
             name="street_number"
@@ -67,8 +67,8 @@ const StepTwo = () => (
           <Field
             type="text"
             name="city"
-            label="Cidade"
-            placeholder="Digite a Cidade"
+            label="Estado"
+            placeholder="Digite a Estado"
           />
         </Column>
         <Column>

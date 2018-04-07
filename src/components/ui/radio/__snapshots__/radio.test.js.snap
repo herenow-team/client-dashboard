@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Field /> component should render correctly 1`] = `
+<div
+  className="control undefined"
+>
+  <label
+    className="radio"
+  >
+    <input
+      className={undefined}
+      defaultChecked={true}
+      name="something"
+      type="radio"
+      value={true}
+    />
+    Sim
+  </label>
+  <label
+    className="radio"
+  >
+    <input
+      className={undefined}
+      defaultChecked={false}
+      name="something"
+      type="radio"
+      value={false}
+    />
+    Não
+  </label>
+</div>
+`;
