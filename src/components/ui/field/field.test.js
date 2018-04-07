@@ -43,4 +43,48 @@ describe('<Field /> component', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
+  it('should support isSmall prop', () => {
+    const tree = renderer
+      .create(
+        <Field
+          name="password"
+          type="password"
+          label="Some label"
+          placeholder="Some placeholder"
+          isSmall
+        />
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('should support isMedium prop', () => {
+    const tree = renderer
+      .create(
+        <Field
+          name="password"
+          type="password"
+          label="Some label"
+          placeholder="Some placeholder"
+          isMedium
+        />
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('should support isLarge prop', () => {
+    const tree = renderer
+      .create(
+        <Field
+          name="password"
+          type="password"
+          label="Some label"
+          placeholder="Some placeholder"
+          isLarge
+        />
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

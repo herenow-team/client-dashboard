@@ -1,0 +1,23 @@
+:local .tracker {
+  display: flex;
+  margin: 16px;
+}
+
+:local .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+:local .bottom {
+  display: flex;
+  margin-top: 15px;
+}
+
+:local .separator {
+  flex: 1;
+}
+
+:local .title {
+  display: flex;
+}

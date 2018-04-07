@@ -2,62 +2,63 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-const Field = ({
-  label,
-  placeholder,
-  type,
+const Select = ({
   name,
+  label,
+  options,
   isSmall,
   isMedium,
   isLarge,
-  isSuccess,
   isDanger,
+  isSuccess,
   errorMessage,
   ...props
 }) => (
   <div className="field">
     {label && <label htmlFor={`input-${name}`}>{label}</label>}
     <div className="control">
-      <input
-        name={name}
-        id={`input-${name}`}
-        className={classnames('input', {
+      <div
+        className={classnames('select', {
           'is-small': isSmall,
           'is-medium': isMedium,
           'is-large': isLarge,
           'is-danger': isDanger,
           'is-success': isSuccess
         })}
-        type={type}
-        placeholder={placeholder}
-        {...props}
-      />
-      {isDanger && <p className="help is-danger">{errorMessage}</p>}
+      >
+        <select id={`input-${name}`} name={name} {...props}>
+          {options.map(({value, text}) => (
+            <option key={`${name}-option-${value}`} value={value}>
+              {text}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
+    {isDanger &&
+      errorMessage && <p className="help is-danger">{errorMessage}</p>}
   </div>
 )
 
-Field.propTypes = {
+Select.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
-  type: PropTypes.string,
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
   isSmall: PropTypes.bool,
   isMedium: PropTypes.bool,
   isLarge: PropTypes.bool,
-  errorMessage: PropTypes.string,
   isSuccess: PropTypes.bool,
-  isDanger: PropTypes.bool
+  isDanger: PropTypes.bool,
+  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 }
 
-Field.defaultProps = {
-  type: 'text',
+Select.defaultProps = {
+  isSuccess: false,
+  isDanger: false,
   isSmall: false,
   isMedium: false,
   isLarge: false,
-  errorMessage: '',
-  isSuccess: false,
-  isDanger: false
+  errorMessage: false
 }
 
-export default Field
+export default Select
