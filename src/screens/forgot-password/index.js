@@ -1,7 +1,6 @@
 import React from 'react'
-import {Columns, Column, Button} from 'bulma-ui'
+import {Columns, Column, Button, Section} from 'bulma-ui'
 import Title from '../../components/ui/title'
-import Section from '../../components/ui/section'
 import Field from '../../components/ui/field'
 import Text from '../../components/ui/text'
 

@@ -6,7 +6,7 @@ import {
   AdvanceButton,
   DotTracker
 } from 'react-step'
-import Section from '../../components/ui/section'
+import {Section} from 'bulma-ui'
 import StepOne from './containers/step-one'
 import StepTwo from './containers/step-two'
 import StepThree from './containers/step-three'

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Columns, Column} from 'bulma-ui'
-import Section from '../../../../components/ui/section'
+import {Columns, Column, Section} from 'bulma-ui'
 import Singup from '../signup'
 import ForgotPassword from '../forgot-password'
 
