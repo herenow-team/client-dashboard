@@ -1,8 +1,7 @@
 import React from 'react'
-import Field from '../../components/ui/field'
-import Radio from '../../components/ui/radio'
-import Columns from '../../components/ui/columns'
-import Column from '../../components/ui/column'
+import {Columns, Column} from 'bulma-ui'
+import Field from '../../../../components/ui/field'
+import Radio from '../../../../components/ui/radio'
 
 const optionsIsCompany = [
   {text: 'Pessoa Física', value: false, checked: true},
@@ -18,8 +17,8 @@ const fields = [
   {
     type: 'text',
     name: 'name',
-    label: 'Razão Social',
-    placeholder: 'Digite a Razão social'
+    label: 'Nome',
+    placeholder: 'Digite o Nome'
   },
   {
     type: 'email',
@@ -36,7 +35,7 @@ const fields = [
 ]
 const StepOne = () => (
   <Columns isCentered>
-    <Column isHalf>
+    <Column size="1/2">
       <Radio name="is_company" options={optionsIsCompany} />
       {fields.map(({type, name, label, placeholder}) => (
         <Field

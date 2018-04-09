@@ -19,8 +19,8 @@ const ForgotPassword = props => (
   <Async load={import('./screens/forgot-password')} componentProps={props} />
 )
 
-const Subscribe = props => (
-  <Async load={import('./screens/subscribe')} componentProps={props} />
+const Signup = props => (
+  <Async load={import('./screens/signup')} componentProps={props} />
 )
 
 const NoMatch = props => (
@@ -38,12 +38,12 @@ const App = () => (
           <Login />
         </UserBaseScreen>
       </Route>
-      <Route exact path="/subscribe">
+      <Route exact path="/signup">
         <UserBaseScreen>
           <Helmet>
             <title>Increver-se - HereNow</title>
           </Helmet>
-          <Subscribe />
+          <Signup />
         </UserBaseScreen>
       </Route>
       <Route exact path="/forgot-password">
