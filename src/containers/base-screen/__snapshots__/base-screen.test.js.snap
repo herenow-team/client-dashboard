@@ -22,10 +22,10 @@ exports[`<BaseScreen /> component should render correctly 1`] = `
         className="navbar-item"
       >
         <a
-          href="/subscribe"
+          href="/signup"
           onClick={[Function]}
         >
-          Subscribe
+          Inscrever-se
         </a>
       </li>
       <li
@@ -45,12 +45,12 @@ exports[`<BaseScreen /> component should render correctly 1`] = `
           href="/forgot-password"
           onClick={[Function]}
         >
-          Forgot Password
+          Esqueceu a senha
         </a>
       </li>
     </ul>
   </nav>
-  <section
+  <div
     className="section"
   >
     <div
@@ -60,6 +60,6 @@ exports[`<BaseScreen /> component should render correctly 1`] = `
         Some content
       </div>
     </div>
-  </section>
+  </div>
 </div>
 `;

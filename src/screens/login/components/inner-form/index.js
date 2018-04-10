@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from '../../../../components/ui/button'
+import {Button} from 'bulma-ui'
 import Field from '../../../../components/ui/field'
 import Message from '../../../../components/ui/message'
 
@@ -42,12 +42,12 @@ const InnerForm = ({
     />
     <Button
       type="submit"
-      isSuccess
+      color="success"
+      size="medium"
       isFullWidth
       isOutlined
       isRounded
-      isMedium
-      isLoading={isSubmitting}
+      state={isSubmitting ? 'loading' : 'normal'}
     >
       Entrar
     </Button>

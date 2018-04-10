@@ -1,20 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Section from '../../../../components/ui/section'
-import Columns from '../../../../components/ui/columns'
-import Column from '../../../../components/ui/column'
-import Subscribe from '../subscribe'
+import {Columns, Column, Section} from 'bulma-ui'
+import Singup from '../signup'
 import ForgotPassword from '../forgot-password'
 
 const Screen = ({children}) => (
   <Section>
     <Columns isCentered>
-      <Column isOneThird>{children}</Column>
+      <Column size="1/3">{children}</Column>
     </Columns>
     <Columns isCentered>
-      <Column isOneThird>
+      <Column size="1/3">
         <ForgotPassword />
-        <Subscribe />
+        <Singup />
       </Column>
     </Columns>
   </Section>

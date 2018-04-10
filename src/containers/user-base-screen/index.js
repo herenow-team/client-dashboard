@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
-import Container from '../../components/ui/container'
+import {Container} from 'bulma-ui'
 import style from './style.css'
 
 const Header = () => (
