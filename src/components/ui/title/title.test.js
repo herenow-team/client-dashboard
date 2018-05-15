@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Title from './index'
+import Title from '.'
 
 describe('<Title /> component', () => {
   it('should render correctly', () => {

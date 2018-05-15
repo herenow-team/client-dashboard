@@ -1,5 +1,4 @@
 import {createInvisibleGrecaptcha, execute} from 'invisible-grecaptcha'
-import history from '../../../../core/history'
 import {setToken} from '../../../../core/token'
 import requestToken from '../../services/request-token'
 import InvalidCaptcha from '../../errors/invalid-captcha'
@@ -12,75 +11,86 @@ import UnverifiedAccountError from '../../errors/unverified-account'
 
 const verifyCallback = (
   values,
-  {setSubmitting, setFieldError, setFieldValue, setFieldTouched, setStatus}
-) => async captcha => {
+  {
+    props,
+    setSubmitting,
+    setFieldError,
+    setFieldValue,
+    setFieldTouched,
+    setStatus
+  }
+) => captcha => {
   setSubmitting(false)
   setStatus(undefined)
 
-  try {
-    const {token} = await requestToken({...values, captcha})
-    setToken(token)
-    history.push('/')
-  } catch (err) {
-    if (err instanceof InvalidCaptcha) {
-      setStatus({message: 'Captcha inválido'})
-      return
-    }
+  const {history} = props
 
-    if (err instanceof RequiredFieldError) {
-      setFieldError(err.field, 'Campo obrigatório')
-      return
-    }
+  requestToken({...values, captcha})
+    .then(token => {
+      setToken(token)
+      history.push('/')
+    })
+    .catch(err => {
+      if (err instanceof InvalidCaptcha) {
+        setStatus({message: 'Captcha inválido'})
+        return
+      }
 
-    if (err instanceof InvalidFieldError) {
-      setFieldError(err.field, 'Campo inválido')
-      return
-    }
+      if (err instanceof RequiredFieldError) {
+        setFieldError(err.field, 'Campo obrigatório')
+        return
+      }
 
-    if (err instanceof TooLongFieldError) {
-      setFieldError(err.field, 'Campo é muito longo.')
-      return
-    }
+      if (err instanceof InvalidFieldError) {
+        setFieldError(err.field, 'Campo inválido')
+        return
+      }
 
-    if (err instanceof InvalidFieldFormatError) {
-      setFieldError(err.field, 'Campo está em um formato inválido.')
-      return
-    }
+      if (err instanceof TooLongFieldError) {
+        setFieldError(err.field, 'Campo é muito longo.')
+        return
+      }
 
-    if (err instanceof InvalidCredentialsError) {
-      setFieldValue('password', '')
-      setFieldTouched('password', false, false)
-      setFieldError('email', 'Login ou senha inválidos.')
-      return
-    }
+      if (err instanceof InvalidFieldFormatError) {
+        setFieldError(err.field, 'Campo está em um formato inválido.')
+        return
+      }
 
-    if (err instanceof UnverifiedAccountError) {
+      if (err instanceof InvalidCredentialsError) {
+        setFieldValue('password', '')
+        setFieldTouched('password', false, false)
+        setFieldError('email', 'Login ou senha inválidos.')
+        return
+      }
+
+      if (err instanceof UnverifiedAccountError) {
+        setStatus({
+          message: {
+            text:
+              'Conta não foi verificada. Tenha certeza de verificar a sua conta antes de continuar.',
+            isDanger: false,
+            isInfo: true
+          }
+        })
+        return
+      }
+
       setStatus({
         message: {
-          text:
-            'Conta não foi verificada. Tenha certeza de verificar a sua conta antes de continuar.',
-          isDanger: false,
-          isInfo: true
+          text: 'Algo deu errado. Tente novamente mais tarde.',
+          isDanger: true,
+          isInfo: false
         }
       })
-      return
-    }
-
-    setStatus({
-      message: {
-        text: 'Algo deu errado. Tente novamente mais tarde.',
-        isDanger: true,
-        isInfo: false
-      }
     })
-  }
 }
 
-export default async function handleSubmit(values, actions) {
-  const grecaptchaId = await createInvisibleGrecaptcha({
+export default function handleSubmit(values, actions) {
+  createInvisibleGrecaptcha({
     sitekey: process.env.RECAPTCHA_KEY,
     locale: 'pt',
     callback: verifyCallback(values, actions)
+  }).then(grecaptchaId => {
+    execute(grecaptchaId)
   })
-  execute(grecaptchaId)
 }

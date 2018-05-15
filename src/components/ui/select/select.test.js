@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Select from './index'
+import Select from '.'
 
 const options = [
   {

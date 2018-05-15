@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Radio from './index'
+import Radio from '.'
 
 describe('<Field /> component', () => {
   it('should render correctly', () => {

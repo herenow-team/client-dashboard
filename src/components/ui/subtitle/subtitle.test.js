@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Subtitle from './index'
+import Subtitle from '.'
 
 describe('<Subtitle /> component', () => {
   it('should render correctly', () => {

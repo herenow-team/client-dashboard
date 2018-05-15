@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Text from './index'
+import Text from '.'
 
 describe('<Text /> component', () => {
   it('should render correctly', () => {
