@@ -3,7 +3,8 @@
   "plugins": [
     "transform-decorators-legacy",
     "transform-class-properties",
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    ["transform-runtime", {"polyfill": false, "regenerator": true}]
   ],
   "env": {
     "production": {
