@@ -16,6 +16,7 @@ module.exports = {
     vendor: ['babel-polyfill', 'react', 'react-dom']
   },
   resolve: {aliasFields: ['browser']},
+  devtool: isProd ? false : 'cheap-module-source-map',
   plugins: [
     new CleanWebpackPlugin(['public/static', 'public/index.html']),
     new HtmlWebpackPlugin({
