@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const cssnext = require('postcss-cssnext')
 const cssnano = require('cssnano')
 const easyImport = require('postcss-easy-import')
+const isCI = require('is-ci')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -25,7 +26,8 @@ module.exports = {
     }),
     new DotenvPlugin({
       safe: true,
-      systemvars: true
+      systemvars: true,
+      silent: isCI
     }),
     new LodashModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
