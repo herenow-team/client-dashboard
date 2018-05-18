@@ -1,5 +1,7 @@
 # client-dashboard
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/herenow-team/client-dashboard.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.com/herenow-team/client-dashboard.svg?branch=master)](https://travis-ci.com/herenow-team/client-dashboard)
 
 This project uses [node](http://nodejs.org) and [npm](https://npmjs.com).
