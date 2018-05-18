@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Button} from 'bulma-ui'
+import Recaptcha from 'react-recaptcha'
 import Field from '../../../../components/ui/field'
 import Message from '../../../../components/ui/message'
 
@@ -12,7 +13,8 @@ const InnerForm = ({
   handleBlur,
   handleSubmit,
   isSubmitting,
-  status
+  status,
+  setFieldValue
 }) => (
   <form onSubmit={handleSubmit}>
     {status.message && <Message {...status.message} />}
@@ -40,6 +42,12 @@ const InnerForm = ({
       value={values.password}
       placeholder="Digite a Senha"
     />
+    <Recaptcha
+      sitekey={process.env.RECAPTCHA_KEY}
+      verifyCallback={captcha => {
+        setFieldValue('captcha', captcha)
+      }}
+    />
     <Button
       type="submit"
       color="success"
@@ -58,7 +66,8 @@ InnerForm.propTypes = {
   isSubmitting: PropTypes.bool.isRequired,
   values: PropTypes.shape({
     email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired
+    password: PropTypes.string.isRequired,
+    captcha: PropTypes.string.isRequired
   }).isRequired,
   errors: PropTypes.shape({
     email: PropTypes.string,

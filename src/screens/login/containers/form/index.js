@@ -6,7 +6,7 @@ import handleSubmit from './handle-submit'
 
 const Form = withRouter(
   withFormik({
-    mapPropsToValues: () => ({email: '', password: ''}),
+    mapPropsToValues: () => ({email: '', password: '', captcha: 'invalid'}),
     validate,
     handleSubmit
   })(InnerForm)
