@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {BrowserRouter as Router} from 'react-router-dom'
-import UserBaseScreen from './index'
+import UserBaseScreen from '.'
 
 describe('<BaseScreen /> component', () => {
   it('should render correctly', () => {

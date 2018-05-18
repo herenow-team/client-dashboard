@@ -1,5 +1,4 @@
 import {createInvisibleGrecaptcha, execute} from 'invisible-grecaptcha'
-import history from '../../../../core/history'
 import {setToken} from '../../../../core/token'
 import requestToken from '../../services/request-token'
 import InvalidCaptcha from '../../errors/invalid-captcha'
@@ -12,12 +11,20 @@ import UnverifiedAccountError from '../../errors/unverified-account'
 
 const verifyCallback = (
   values,
-  {setSubmitting, setFieldError, setFieldValue, setFieldTouched, setStatus}
+  {
+    props,
+    setSubmitting,
+    setFieldError,
+    setFieldValue,
+    setFieldTouched,
+    setStatus
+  }
 ) => async captcha => {
   setSubmitting(false)
   setStatus(undefined)
 
   try {
+    const {history} = props
     const {token} = await requestToken({...values, captcha})
     setToken(token)
     history.push('/')

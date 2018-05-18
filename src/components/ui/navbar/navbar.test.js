@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import {BrowserRouter as Router} from 'react-router-dom'
-import Navbar from './index'
+import Navbar from '.'
 
 describe('<Navbar /> component', () => {
   it('should render correctly', () => {
