@@ -9,5 +9,6 @@ export default function validate(values) {
   if (!values.password) {
     errors.password = 'Por favor, insira sua senha.'
   }
+
   return errors
 }

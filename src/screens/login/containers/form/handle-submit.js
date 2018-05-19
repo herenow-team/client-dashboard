@@ -1,4 +1,3 @@
-import {createInvisibleGrecaptcha, execute} from 'invisible-grecaptcha'
 import {setToken} from '../../../../core/token'
 import requestToken from '../../services/request-token'
 import InvalidCaptcha from '../../errors/invalid-captcha'
@@ -9,7 +8,7 @@ import InvalidFieldFormatError from '../../errors/invalid-field-format'
 import InvalidCredentialsError from '../../errors/invalid-credentials'
 import UnverifiedAccountError from '../../errors/unverified-account'
 
-const verifyCallback = (
+export default async function handleSubmit(
   values,
   {
     props,
@@ -19,18 +18,22 @@ const verifyCallback = (
     setFieldTouched,
     setStatus
   }
-) => async captcha => {
-  setSubmitting(false)
+) {
   setStatus(undefined)
 
   try {
     const {history} = props
-    const {token} = await requestToken({...values, captcha})
+    const {token} = await requestToken(values)
+    setSubmitting(false)
     setToken(token)
     history.push('/')
   } catch (err) {
+    setSubmitting(false)
+
     if (err instanceof InvalidCaptcha) {
-      setStatus({message: 'Captcha inválido'})
+      setStatus({
+        message: {text: 'Captcha inválido', isDanger: true, isInfo: false}
+      })
       return
     }
 
@@ -81,13 +84,4 @@ const verifyCallback = (
       }
     })
   }
-}
-
-export default async function handleSubmit(values, actions) {
-  const grecaptchaId = await createInvisibleGrecaptcha({
-    sitekey: process.env.RECAPTCHA_KEY,
-    locale: 'pt',
-    callback: verifyCallback(values, actions)
-  })
-  execute(grecaptchaId)
 }
