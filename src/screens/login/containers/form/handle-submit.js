@@ -20,7 +20,7 @@ export default async function handleSubmit(
   }
 ) {
   setStatus(undefined)
-  console.log(values)
+
   try {
     const {history} = props
     const {token} = await requestToken(values)
