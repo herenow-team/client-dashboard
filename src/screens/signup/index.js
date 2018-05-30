@@ -33,7 +33,7 @@ const pages = [
 const Signup = () => (
   <UserBaseScreen>
     <Helmet>
-      <title>Increver-se - HereNow</title>
+      <title>Inscrever-se - HereNow</title>
     </Helmet>
     <Section>
       <Stepper pages={pages}>
