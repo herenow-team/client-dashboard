@@ -64,6 +64,7 @@
     "eslint-plugin-react": "^7.8.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
+    "identity-obj-proxy": "^3.0.0",
     "is-ci": "^1.1.0",
     "jest": "^22.4.3",
     "lint-staged": "^7.1.0",
@@ -147,7 +148,7 @@
       "src/**/*.js"
     ],
     "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/test/__mocks__/file-mocks.js",
+      "\\.(css|less)$": "identity-obj-proxy",
       "\\.(png|jpg|gif)$": "<rootDir>/test/__mocks__/file-mocks.js"
     }
   },
