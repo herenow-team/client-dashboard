@@ -1,41 +1,19 @@
 import {setToken, getToken} from '.'
 
 beforeEach(() => {
-  class LocalStorageMock {
-    constructor() {
-      this.store = {}
-    }
-
-    clear() {
-      this.store = {}
-    }
-
-    getItem(key) {
-      return this.store[key] || null
-    }
-
-    setItem(key, value) {
-      this.store[key] = value.toString()
-    }
-
-    removeItem(key) {
-      delete this.store[key]
-    }
-  }
-
-  global.sessionStorage = new LocalStorageMock()
+  global.sessionStorage.clear()
 })
 
 test('expect setToken set a token to sessionStorage', () => {
-  const token = 'token'
-  setToken(token)
-  const stored = global.sessionStorage.getItem('token')
-  expect(stored).toBe(token)
+  const expected = 'token'
+  setToken(expected)
+  const actual = global.sessionStorage.getItem('token')
+  expect(actual).toBe(expected)
 })
 
 test('expect getToken get a token from sessionStorage', () => {
-  const token = 'token'
-  global.sessionStorage.setItem('token', token)
-  const stored = getToken(token)
-  expect(stored).toBe(token)
+  const expected = 'token'
+  global.sessionStorage.setItem('token', expected)
+  const actual = getToken()
+  expect(actual).toBe(expected)
 })

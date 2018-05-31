@@ -147,7 +147,7 @@
       "src/**/*.js"
     ],
     "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/test/__mocks__/file-mocks.js",
+      "\\.(css|less)$": "identity-obj-proxy",
       "\\.(png|jpg|gif)$": "<rootDir>/test/__mocks__/file-mocks.js"
     }
   },

@@ -2,13 +2,13 @@
 
 exports[`<Field /> component should render correctly 1`] = `
 <div
-  className="control undefined"
+  className="control container"
 >
   <label
     className="radio"
   >
     <input
-      className={undefined}
+      className="input"
       defaultChecked={true}
       name="something"
       type="radio"
@@ -20,7 +20,7 @@ exports[`<Field /> component should render correctly 1`] = `
     className="radio"
   >
     <input
-      className={undefined}
+      className="input"
       defaultChecked={false}
       name="something"
       type="radio"

@@ -3,7 +3,7 @@
 exports[`<NavbarItem /> component should render correctly 1`] = `
 <img
   alt="herenow"
-  className={undefined}
+  className="logo"
   src="nothing"
 />
 `;
