@@ -36,7 +36,7 @@
   "homepage": "https://github.com/herenow-team/client-dashboard#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^9.0.0",
     "babel-jest": "^23.0.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-lodash": "^3.3.2",
